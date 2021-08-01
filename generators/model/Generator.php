@@ -98,7 +98,7 @@ class Generator extends \yii\gii\generators\model\Generator
             'baseNs' => 'This is the namespace of the ActiveRecord class to be generated, e.g., <code>app\models</code>',
         ]);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -117,7 +117,7 @@ class Generator extends \yii\gii\generators\model\Generator
             'baseNs',
         ]);
     }
-    
+
     /**
      * @inheritdoc
      */
@@ -138,8 +138,8 @@ class Generator extends \yii\gii\generators\model\Generator
                 'tableSchema' => $tableSchema,
                 'properties' => $this->generateProperties($tableSchema),
                 'labels' => $this->generateLabels($tableSchema),
-                'rules' => $this->generateRules($tableSchema),
-                'relations' => isset($relations[$tableName]) ? $relations[$tableName] : [],
+                'rules' => $this->convertLegacyClassNameToClass($this->generateRules($tableSchema)),
+                'relations' => isset($relations[$tableName]) ? $this->convertLegacyClassNameToClass($relations[$tableName]) : [],
             ];
             $files[] = new CodeFile(
                 Yii::getAlias('@' . str_replace('\\', '/', $this->baseNs)) . '/' . $modelClassName . '.php',
@@ -161,22 +161,26 @@ class Generator extends \yii\gii\generators\model\Generator
             }
         }
 
+
+
         return $files;
     }
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
-    
+
+    private function convertLegacyClassNameToClass($data)
+    {
+        foreach ($data as &$value) {
+            if (is_array($value)) {
+                $value = $this->convertLegacyClassNameToClass($value);
+            } else {
+                $value = strtr($value, [
+                    '::className()' => '::class',
+                ]);
+            }
+        }
+
+        return $data;
+    }
+
     /**
      * Generates the properties for the specified table.
      * @param \yii\db\TableSchema $table the table schema
@@ -201,7 +205,7 @@ class Generator extends \yii\gii\generators\model\Generator
                 'comment' => $column->comment,
             ];
         }
-        
+
         return $properties;
     }
 }

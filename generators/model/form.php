@@ -1,12 +1,18 @@
 <?php
 
 use yii\gii\generators\model\Generator;
+use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $form yii\widgets\ActiveForm */
 /* @var $generator mirkhamidov\gii\generators\model\Generator */
 
-echo $form->field($generator, 'tableName')->textInput(['table_prefix' => $generator->getTablePrefix()]);
+echo $form->field($generator, 'tableName')->textInput([
+    'data' => [
+        'table_prefix' => $generator->getTablePrefix(),
+        'action' => Url::to(['default/action', 'id' => 'model', 'name' => 'GenerateClassName']),
+    ],
+]);
 echo $form->field($generator, 'modelClass');
 echo $form->field($generator, 'ns');
 echo $form->field($generator, 'baseNs');
