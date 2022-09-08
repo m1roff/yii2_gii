@@ -5,7 +5,7 @@ use yii\helpers\Url;
 
 /* @var $this yii\web\View */
 /* @var $form yii\widgets\ActiveForm */
-/* @var $generator mirkhamidov\gii\generators\model\Generator */
+/* @var $generator m1roff\gii\generators\model\Generator */
 
 echo $form->field($generator, 'tableName')->textInput([
     'data' => [

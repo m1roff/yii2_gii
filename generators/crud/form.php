@@ -1,7 +1,7 @@
 <?php
 /* @var $this yii\web\View */
 /* @var $form yii\widgets\ActiveForm */
-/* @var $generator mirkhamidov\gii\generators\crud\Generator */
+/* @var $generator m1roff\gii\generators\crud\Generator */
 
 echo $form->field($generator, 'modelClass');
 echo $form->field($generator, 'searchModelClass');

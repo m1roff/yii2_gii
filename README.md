@@ -9,7 +9,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```bash
-composer require mirkhamidov/yii2-gii "*"
+composer require m1roff/yii2-gii "*"
 ```
 
 
@@ -30,15 +30,15 @@ if (!YII_ENV_TEST) {
         'allowedIPs' => ['*'],
         'generators' => [ //here
             'model' => [ // generator name
-                'class' => 'mirkhamidov\gii\generators\model\Generator', // generator class
+                'class' => 'm1roff\gii\generators\model\Generator', // generator class
                 'templates' => [ //setting for out templates
-                    'myModel' => '@mirkhamidov/gii/generators/model/default', // template name => path to template
+                    'myModel' => '@m1roff/gii/generators/model/default', // template name => path to template
                 ]
             ],
             'crud' => [ // generator name
-                'class' => 'mirkhamidov\gii\generators\crud\Generator', // generator class
+                'class' => 'm1roff\gii\generators\crud\Generator', // generator class
                 'templates' => [ //setting for out templates
-                    'myCrud' => '@mirkhamidov/gii/generators/crud/default', // template name => path to template
+                    'myCrud' => '@m1roff/gii/generators/crud/default', // template name => path to template
                 ]
             ],
         ],

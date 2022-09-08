@@ -1,6 +1,6 @@
 <?php
 
-namespace mirkhamidov\gii\generators\model;
+namespace m1roff\gii\generators\model;
 
 use Yii;
 use yii\db\ActiveQuery;

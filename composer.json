@@ -1,5 +1,5 @@
 {
-  "name": "mirkhamidov/yii2-gii",
+  "name": "m1roff/yii2-gii",
   "description": "My useful extension of yii2-gii official module",
   "keywords": ["yii2", "gii", "code generator"],
   "type": "yii2-extension",
@@ -10,7 +10,7 @@
   },
   "autoload": {
     "psr-4": {
-      "mirkhamidov\\gii\\": "/"
+      "m1roff\\gii\\": "/"
     }
   }
 }

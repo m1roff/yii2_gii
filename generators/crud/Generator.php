@@ -1,6 +1,6 @@
 <?php
 
-namespace mirkhamidov\gii\generators\crud;
+namespace m1roff\gii\generators\crud;
 
 use Yii;
 use yii\db\ActiveRecord;
