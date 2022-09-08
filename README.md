@@ -9,7 +9,7 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```bash
-composer require m1roff/yii2-gii "*"
+composer require --dev m1roff/yii2-gii "^2.0"
 ```
 
 
